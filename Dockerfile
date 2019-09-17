@@ -1,17 +1,7 @@
 FROM openjdk:8
 
-LABEL name="Bazel Action"
-LABEL maintainer="Nikita Galaiko"
-LABEL version="0.29.0"
-LABEL repository="https://github.com/ngalaiko/bazel-action"
-
-LABEL com.github.actions.name="Bazel Action"
-LABEL com.github.actions.description="Run Bazel commands"
-LABEL com.github.actions.icon="box"
-LABEL com.github.actions.color="green"
-
-ENV BAZEL_VERSION=0.29.0
-ENV BAZEL_SHA256SUM=509c9ed0ee197a0cc613b187f00810d35c5d8716dbfe574616b3e1206d8ea01f
+ARG BAZEL_VERSION
+ARG BAZEL_SHA256SUM
 
 RUN apt-get update && apt-get install -y \
         g++ \

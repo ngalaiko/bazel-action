@@ -1,0 +1,31 @@
+name: CI
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v1
+    
+    - name: Login to registry
+      env:
+        DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+      run: |
+        docker login \
+            docker.pkg.github.com \
+            -u ngalaiko \
+            -p ${DOCKER_PASSWORD}
+
+    - name: Build images
+      run: |
+        docker build \
+            -t docker.pkg.github.com/ngalaiko/bazel-action/app:0.29.0 \
+            --build-arg BAZEL_VERSION=0.29.0 \
+            --build-arg BAZEL_SHA256SUM=509c9ed0ee197a0cc613b187f00810d35c5d8716dbfe574616b3e1206d8ea01f \
+            .
+
+    - name: Push images
+      run: |
+        docker push docker.pkg.github.com/ngalaiko/bazel-action/app:0.29.0

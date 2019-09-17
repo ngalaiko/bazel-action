@@ -16,7 +16,7 @@ job:
     - uses: actions/checkout@master
 
     - name: run
-      uses: ngalaiko/bazel-action@0.29.0
+      uses: ngalaiko/bazel-action/0.29.0@master
       with:
         args: build //...
 ```
