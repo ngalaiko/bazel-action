@@ -1,7 +1,7 @@
 FROM openjdk:8
 
-ARG BAZEL_VERSION
-ARG BAZEL_SHA256SUM
+ARG BAZEL_VERSION=0.29.0
+ARG BAZEL_SHA256SUM=509c9ed0ee197a0cc613b187f00810d35c5d8716dbfe574616b3e1206d8ea01f
 
 RUN apt-get update && apt-get install -y \
         g++ \
