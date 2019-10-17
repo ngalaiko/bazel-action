@@ -1,4 +1,4 @@
-FROM openjdk:8
+FROM openjdk:11
 
 LABEL name="Bazel Action"
 LABEL maintainer="Nikita Galaiko"
