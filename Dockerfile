@@ -1,7 +1,6 @@
 FROM openjdk:8
 
 ARG BAZEL_VERSION=0.29.0
-ARG BAZEL_SHA256SUM=509c9ed0ee197a0cc613b187f00810d35c5d8716dbfe574616b3e1206d8ea01f
 
 RUN apt-get update && apt-get install -y \
         g++ \
@@ -17,12 +16,20 @@ RUN set -ex; \
         --silent \
         --show-error \
         --location \
-        --output bazel.deb \
-        "https://github.com/bazelbuild/bazel/releases/download/${BAZEL_VERSION}/bazel_${BAZEL_VERSION}-linux-x86_64.deb" && \
-    sha256sum bazel.deb && \
-    echo "$BAZEL_SHA256SUM *bazel.deb" | sha256sum -c - && \
-    dpkg -i bazel.deb && \
-    rm bazel.deb
+        --output bazel.deb.sha256 \
+        "https://github.com/bazelbuild/bazel/releases/download/${BAZEL_VERSION}/bazel_${BAZEL_VERSION}-linux-x86_64.deb.sha256"
+
+RUN set -ex; \
+    curl \
+        --fail \
+        --silent \
+        --show-error \
+        --location \
+        --remote-name \
+        "https://github.com/bazelbuild/bazel/releases/download/${BAZEL_VERSION}/bazel_${BAZEL_VERSION}-linux-x86_64.deb" \
+    && cat bazel.deb.sha256 | sha256sum -c - \
+    && dpkg -i "bazel_${BAZEL_VERSION}-linux-x86_64.deb" \
+    && rm "bazel_${BAZEL_VERSION}-linux-x86_64.deb"
 
 COPY ./entrypoint.sh /entrypoint.sh
 
