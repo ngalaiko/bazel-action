@@ -1,4 +1,4 @@
-FROM openjdk:8
+FROM openjdk:11
 
 ARG BAZEL_VERSION=0.29.0
 
