@@ -9,6 +9,13 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     
+    - name: Build
+      run: |
+        docker build \
+            -t ngalayko/bazel-action:0.29.0 \
+            --build-arg BAZEL_VERSION=0.29.0 \
+            .
+
     - name: Login to registry
       env:
         DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
@@ -17,13 +24,6 @@ jobs:
             -u ngalayko \
             -p ${DOCKER_PASSWORD}
 
-    - name: Build images
-      run: |
-        docker build \
-            -t ngalayko/bazel-action:0.29.0 \
-            --build-arg BAZEL_VERSION=0.29.0 \
-            .
-
-    - name: Push images
+    - name: Push
       run: |
         docker push ngalayko/bazel-action:0.29.0
