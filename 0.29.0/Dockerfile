@@ -1,4 +1,4 @@
-FROM docker.pkg.github.com/ngalaiko/bazel-action/action:0.29.0
+FROM ngalayko/bazel-action:0.29.0
 
 LABEL name="Bazel Action"
 LABEL maintainer="Nikita Galaiko"
