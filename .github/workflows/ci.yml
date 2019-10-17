@@ -8,6 +8,11 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        version:
+        - 0.29.0
+        - 1.0.0
     
     steps:
     - uses: actions/checkout@v1
@@ -15,8 +20,8 @@ jobs:
     - name: build
       run: |
         docker build \
-            -t ngalayko/bazel-action:0.29.0 \
-            --build-arg bazel_version=0.29.0 \
+            -t ngalayko/bazel-action:${{ matrix.version }}
+            --build-arg bazel_version=${{ matrix.version }}
             .
 
     - name: login to registry
@@ -29,4 +34,4 @@ jobs:
 
     - name: push
       run: |
-        docker push ngalayko/bazel-action:0.29.0
+        docker push ngalayko/bazel-action:${{ matrix.version }}
