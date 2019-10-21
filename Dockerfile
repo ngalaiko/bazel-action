@@ -2,16 +2,6 @@ FROM openjdk:11
 
 ARG BAZEL_VERSION=1.1.0
 
-LABEL name="Bazel Action"
-LABEL maintainer="Nikita Galaiko"
-LABEL version=$BAZEL_VERSION
-LABEL repository="https://github.com/ngalaiko/bazel-action"
-
-LABEL com.github.actions.name="Bazel Action"
-LABEL com.github.actions.description="Run Bazel commands"
-LABEL com.github.actions.icon="box"
-LABEL com.github.actions.color="green"
-
 RUN apt-get update && apt-get install -y \
         g++ \
         zlib1g-dev \

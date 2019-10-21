@@ -1,0 +1,16 @@
+name: 'Bazel Action'
+author: 'Nikita Galaiko'
+description: 'Run Bazel commands'
+inputs:
+  args:
+    description: 'Arguments to the bazel command'
+    required: true
+    default: ''
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.args }}
+branding:
+  icon: 'box'  
+  color: 'green'
