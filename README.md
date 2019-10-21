@@ -19,7 +19,7 @@ job:
     - uses: actions/checkout@master
 
     - name: run
-      uses: ngalaiko/bazel-action/1.0.0@master
+      uses: ngalaiko/bazel-action/1.1.0@master
       with:
         args: build //...
 ```
@@ -32,7 +32,7 @@ and all dependencies. Images are stored in the [DockerHub](https://cloud.docker.
 If you need a specific bazel version, you can import it by changeing `uses` import path. For example:
 
 ```yaml
-uses: ngalaiko/bazel-action/1.0.0@master
+uses: ngalaiko/bazel-action/1.1.0@master
 ```
 
 or
@@ -41,10 +41,13 @@ or
 uses: ngalaiko/bazel-action/0.29.0@master
 ```
 
-If you need another version, please open an issue, or send a PR.
+If you need another version, please [open an issue](https://github.com/ngalaiko/bazel-action/issues/new), or send a PR.
 
 If you don't want to use a prebuild image, the action with the bazel's latest version is always accessible via
-`ngalaiko/bazel-action@master`.
+
+```yaml
+uses: ngalaiko/bazel-action@master
+```
 
 ## GitHub actions
 
