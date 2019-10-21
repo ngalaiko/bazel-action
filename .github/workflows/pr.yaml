@@ -13,10 +13,11 @@ jobs:
         version:
         - 0.29.0
         - 1.0.0
-    
+        - 1.1.0
+
     steps:
     - uses: actions/checkout@v1
-    
+
     - name: build
       run: |
         docker build \
