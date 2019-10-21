@@ -37,6 +37,6 @@ uses: ngalaiko/bazel-action/0.29.0@master
 
 If you need another version, please open an issue, or send a PR.
 
-## GitHub actios
+## GitHub actions
 
 You can read more about GitHub actions in the [documentation](https://help.github.com/en/categories/automating-your-workflow-with-github-actions).

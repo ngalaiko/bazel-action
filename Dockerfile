@@ -1,6 +1,6 @@
 FROM openjdk:11
 
-ARG BAZEL_VERSION=0.29.0
+ARG BAZEL_VERSION=1.1.0
 
 RUN apt-get update && apt-get install -y \
         g++ \
