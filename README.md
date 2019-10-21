@@ -27,7 +27,7 @@ job:
 ## bazel version
 
 In order to speed up builds, `ngalaiko/bazel-action/<version>@<tag>` uses prebuilt images with installed bazel 
-and all dependencies. Images are stored in the (DockerHub)[https://cloud.docker.com/u/ngalayko/repository/docker/ngalayko/bazel-action].
+and all dependencies. Images are stored in the [DockerHub](https://cloud.docker.com/u/ngalayko/repository/docker/ngalayko/bazel-action).
 
 If you need a specific bazel version, you can import it by changeing `uses` import path. For example:
 
