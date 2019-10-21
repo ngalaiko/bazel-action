@@ -1,4 +1,4 @@
-[![Docker Status](https://images.microbadger.com/badges/version/ngalayko/bazel-action.svg)](https://hub.docker.com/r/ngalayko/bazel-action/ "Latest Docker HUB image")
+[![CI Status](https://github.com/ngalaiko/bazel-action/workflows/ci/badge.svg)](https://github.com/ngalaiko/bazel-action/actions)
 [![Docker Hub](https://img.shields.io/docker/pulls/ngalayko/bazel-action.svg)](https://hub.docker.com/r/ngalayko/bazel-action/ "Docker Pulls")
 
 # Bazel Action
