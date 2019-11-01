@@ -11,7 +11,7 @@ Create a `.github/workflows/workflow.yml` file with the following contents:
 ```yaml
 on: push
 name: My Action
-job:
+jobs:
   checks:
     name: run
     runs-on: ubuntu-latest
