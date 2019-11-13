@@ -24,6 +24,15 @@ jobs:
         args: build //...
 ```
 
+## `with` Arguments
+
+Additional context can be passed to the bazel action with the [`with`](https://help.github.com/en/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#jobsjob_idstepswith)
+field. The following fields are supported:
+
+| `with` field | Description |
+| ------------- | ------------- |
+| `working_dir` | Sets the directory that bazel will run in. |
+
 ## bazel version
 
 In order to speed up builds, `ngalaiko/bazel-action/<version>@<tag>` uses prebuilt images with installed bazel 
