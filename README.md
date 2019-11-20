@@ -19,7 +19,7 @@ jobs:
     - uses: actions/checkout@master
 
     - name: run
-      uses: ngalaiko/bazel-action/1.1.0@master
+      uses: ngalaiko/bazel-action/1.2.0@master
       with:
         args: build //...
 ```
@@ -35,13 +35,13 @@ field. The following fields are supported:
 
 ## bazel version
 
-In order to speed up builds, `ngalaiko/bazel-action/<version>@<tag>` uses prebuilt images with installed bazel 
+In order to speed up builds, `ngalaiko/bazel-action/<version>@<tag>` uses prebuilt images with installed bazel
 and all dependencies. Images are stored in the [DockerHub](https://cloud.docker.com/u/ngalayko/repository/docker/ngalayko/bazel-action).
 
 If you need a specific bazel version, you can import it by changeing `uses` import path. For example:
 
 ```yaml
-uses: ngalaiko/bazel-action/1.1.0@master
+uses: ngalaiko/bazel-action/1.2.0@master
 ```
 
 or
