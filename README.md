@@ -19,7 +19,7 @@ jobs:
     - uses: actions/checkout@master
 
     - name: run
-      uses: ngalaiko/bazel-action/1.2.0@master
+      uses: ngalaiko/bazel-action/1.2.1@master
       with:
         args: build //...
 ```
@@ -41,7 +41,7 @@ and all dependencies. Images are stored in the [DockerHub](https://cloud.docker.
 If you need a specific bazel version, you can import it by changeing `uses` import path. For example:
 
 ```yaml
-uses: ngalaiko/bazel-action/1.2.0@master
+uses: ngalaiko/bazel-action/1.2.1@master
 ```
 
 or
