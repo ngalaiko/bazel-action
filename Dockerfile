@@ -7,7 +7,8 @@ RUN apt-get update && apt-get install -y \
         zlib1g-dev \
         bash-completion \
         patch \
-        python3 \
+        python3-dev \
+        python-dev \
     && rm -rf /var/lib/apt/lists/*
 
 RUN set -ex; \
