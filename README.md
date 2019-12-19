@@ -1,3 +1,50 @@
+# **DO NOT USE**
+
+The existence of this action is completely unnecessary when basilisk project exists, consider using it instead. 
+
+Cons: 
+- no docker
+- easier to install dependencies like clang https://github.com/ngalaiko/bazel-action/issues/16 
+- [bazelisk](https://github.com/bazelbuild/bazelisk) takes care of version updates https://github.com/ngalaiko/bazel-action/issues/19
+- [actions/cache](https://github.com/marketplace/actions/cache) can be used to persist cache https://github.com/ngalaiko/bazel-action/issues/23
+
+```yaml
+name: CI
+
+on:
+  push: {}
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v1
+
+    - name: Mount bazel cache
+      uses: actions/cache@v1
+      with:
+        path: "/home/runner/.cache/bazel"
+        key: bazel
+
+    - name: Install bazelisk
+      run: |
+        curl -LO "https://github.com/bazelbuild/bazelisk/releases/download/v1.1.0/bazelisk-linux-amd64"
+        mkdir -p "${GITHUB_WORKSPACE}/bin/"
+        mv bazelisk-linux-amd64 "${GITHUB_WORKSPACE}/bin/bazel"
+        chmod +x "${GITHUB_WORKSPACE}/bin/bazel"
+
+    - name: Test
+      run: |
+        "${GITHUB_WORKSPACE}/bin/bazel" test //...
+
+    - name: Build
+      run: |
+        "${GITHUB_WORKSPACE}/bin/bazel" build //...
+```
+
+
+
 [![CI Status](https://github.com/ngalaiko/bazel-action/workflows/ci/badge.svg)](https://github.com/ngalaiko/bazel-action/actions)
 [![Docker Hub](https://img.shields.io/docker/pulls/ngalayko/bazel-action.svg)](https://hub.docker.com/r/ngalayko/bazel-action/ "Docker Pulls")
 
