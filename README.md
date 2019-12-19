@@ -41,13 +41,13 @@ and all dependencies. Images are stored in the [DockerHub](https://cloud.docker.
 If you need a specific bazel version, you can import it by changeing `uses` import path. For example:
 
 ```yaml
-uses: ngalaiko/bazel-action/1.2.1@master
+uses: ngalaiko/bazel-action/2.0.0@master
 ```
 
 or
 
 ```yaml
-uses: ngalaiko/bazel-action/0.29.0@master
+uses: ngalaiko/bazel-action/1.2.1@master
 ```
 
 If you need another version, please [open an issue](https://github.com/ngalaiko/bazel-action/issues/new), or send a PR.
